@@ -21,12 +21,22 @@ const Header = () => {
       <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>Grocery Store</Navbar.Brand>
+            <Navbar.Brand>Yazh SuperMarket</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Route render={({ history }) => <SearchBox history={history} />} />
+            <LinkContainer to='/' style={{marginLeft:'50px'}}>
+            <Navbar.Brand><i class="fa fa-home"></i></Navbar.Brand>
+              </LinkContainer>
             <Nav className='ml-auto'>
+           
+            <LinkContainer to='/category'>
+                <Nav.Link>
+                   <i></i>
+                  category
+                </Nav.Link>
+              </LinkContainer>
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <i className='fas fa-shopping-cart'></i> Cart

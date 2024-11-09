@@ -1,0 +1,13 @@
+.cate
+{
+ color:white ;
+ font-size:20px ;   
+ font-family: Garamond;   
+ border: 3px solid #6feacd;
+ box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+ border-radius: 10px;
+ width: 290px;
+ padding:10px ;
+ background-color:#283747  ;
+letter-spacing: -1px;
+ }

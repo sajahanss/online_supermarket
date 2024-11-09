@@ -10,7 +10,8 @@ import ProductCarousel from '../components/ProductCarousel'
 import Meta from '../components/Meta'
 import { listProducts } from '../actions/productActions'
 import axios from 'axios'
-const HomeScreen = ({ match }) => {
+import './category.css'
+const Categoryscreen = ({ match }) => {
   const keyword = match.params.keyword
   const [pdcollection,setpdcollection]=useState([])
   const pageNumber = match.params.pageNumber || 1
@@ -21,7 +22,7 @@ const HomeScreen = ({ match }) => {
   const { loading, error, products, page, pages } = productList
 
   useEffect(()=>{
-    axios.get('http://localhost:5000/productcollection')
+    axios.get('productcollection')
     .then((res)=>{
       
       setpdcollection(res.data)
@@ -70,39 +71,39 @@ const HomeScreen = ({ match }) => {
   return (
     <>
       <Meta />
-      {!keyword ? (
+      {/* {!keyword ? (
         <ProductCarousel />
       ) : (
         <Link to='/' className='btn btn-light'>
           Go Back
         </Link>
       )}
-      <h1 className='text-center'>Latest Products</h1>
+      <h1 className='text-center'>Latest Products</h1> */}
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
-           {/* <h1 style={{color:'blue'}}>Atta & Rice</h1> */}
+           <h1 className='cate' >Atta & Rice</h1>
           <Row>
-            {products.map((product) => (
+            {/* {products.map((product) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                 <Product product={product} />
               </Col>
-            ))}
+            ))} */}
              
-                {/* {pdcollection.filter(atta).map((product)=> (
+                {pdcollection.filter(atta).map((product)=> (
                  
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                 <Product product={product} />
               </Col>
               
-              ))} */}
+              ))}
 
           </Row>
   
-          {/* <h1 style={{color:'blue'}}>Bakery,Cakes and dairy</h1>
+          <h1 className='cate'>Bakery,Cakes and dairy</h1>
           <Row>
                         
                 {pdcollection.filter(bakes).map((product)=> (
@@ -115,7 +116,7 @@ const HomeScreen = ({ match }) => {
 
           </Row>
 
-          <h1 style={{color:'blue'}}>Chocolates & Ice Cream</h1>
+          <h1 className='cate'>Chocolates & Ice Cream</h1>
           <Row>
                         
                 {pdcollection.filter(Chocolates).map((product)=> (
@@ -128,7 +129,7 @@ const HomeScreen = ({ match }) => {
 
           </Row>
 
-          <h1 style={{color:'blue'}}>Dals & Sugar</h1>
+          <h1 className='cate'>Dals & Sugar</h1>
           <Row>
                         
                 {pdcollection.filter(dals).map((product)=> (
@@ -141,7 +142,7 @@ const HomeScreen = ({ match }) => {
 
           </Row>
 
-          <h1 style={{color:'blue'}}>Eggs,Meat & Fish</h1>
+          <h1 className='cate'>Eggs,Meat & Fish</h1>
           <Row>
                         
                 {pdcollection.filter(eggs).map((product)=> (
@@ -154,7 +155,7 @@ const HomeScreen = ({ match }) => {
 
           </Row>
 
-          <h1 style={{color:'blue'}}>Grocery</h1>
+          <h1 className='cate'>Grocery</h1>
           <Row>
                         
                 {pdcollection.filter(grocery).map((product)=> (
@@ -167,7 +168,7 @@ const HomeScreen = ({ match }) => {
 
           </Row>
 
-          <h1 style={{color:'blue'}}>Fruits & Vegitables</h1>
+          <h1 className='cate'>Fruits & Vegitables</h1>
           <Row>
                         
                 {pdcollection.filter(fruirs).map((product)=> (
@@ -180,7 +181,7 @@ const HomeScreen = ({ match }) => {
 
           </Row>
 
-          <h1 style={{color:'blue'}}>Oils & Dry Fruits</h1>
+          <h1 className='cate'>Oils & Dry Fruits</h1>
           <Row>
                         
                 {pdcollection.filter(oil).map((product)=> (
@@ -192,19 +193,19 @@ const HomeScreen = ({ match }) => {
               ))}
 
           </Row>
- */}
 
 
-          <Paginate
+
+          {/* <Paginate
             pages={pages}
             page={page}
             keyword={keyword ? keyword : ''}
-          />
+          /> */}
         </>
       )}
     </>
   )
 }
 
-export default HomeScreen
+export default Categoryscreen
 
