@@ -21,7 +21,7 @@ const HomeScreen = ({ match }) => {
   const { loading, error, products, page, pages } = productList
 
   useEffect(()=>{
-    axios.get('http://localhost:5000/productcollection')
+    axios.get('productcollection')
     .then((res)=>{
       
       setpdcollection(res.data)
