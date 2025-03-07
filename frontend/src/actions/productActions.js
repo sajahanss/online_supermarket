@@ -229,13 +229,19 @@ export const listTopProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_TOP_REQUEST })
 
-    const { data } = await axios.get(`https://online-supermarket-backend.onrender.com/api/products/top`)
+    const { data } = await axios.get(`https://online-supermarket-backend.onrender.com/api/products/top`,{
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      withCredentials: true, // Important for authentication
+    })
     console.log(data)
 
     dispatch({
       type: PRODUCT_TOP_SUCCESS,
       payload: data,
-    })
+    })      
   } catch (error) {
     dispatch({
       type: PRODUCT_TOP_FAIL,
