@@ -35,6 +35,14 @@ app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
 app.use('/api/upload', fileupload)
 app.use(cors())
+// ✅ OR Allow only a specific origin (Replace with your frontend URL)
+app.use(
+  cors({
+    origin: "*", // Change to your frontend domain in production
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true, // Needed if using cookies/sessions
+  })
+);
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // Allow all domains
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
