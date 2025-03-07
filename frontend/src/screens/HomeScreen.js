@@ -12,6 +12,7 @@ import { listProducts } from '../actions/productActions'
 import axios from 'axios'
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword
+  console.log(keyword)
   const [pdcollection,setpdcollection]=useState([])
   const pageNumber = match.params.pageNumber || 1
 
