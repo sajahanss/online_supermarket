@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // ✅ Correct CORS Configuration
-const allowedOrigins = ["http://localhost:3000", "https://yourfrontend.com"];
+const allowedOrigins = ["http://localhost:3000", "https://yazhsupermarket.netlify.app"];
 app.use(
   cors({
     origin: allowedOrigins,
